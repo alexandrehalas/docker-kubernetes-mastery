@@ -107,3 +107,11 @@ acb90a22417e | mysql | "docker-entrypoint.s…" | 6 minutes ago | Up 6 minutes |
 ```$ docker container rm ff4e1117f1ca 7379c569378a acb90a22417e```
 
 ```$ docker image ls```
+
+### What's going On In Containers: CLI Process Monitoring
+
+```$ docker container top``` - process list in one container
+
+```$ docker container inspect``` - details of one container config, show metadata about the container (startup, config, volumes, networking, ...)
+
+```$ docker container stats``` - performance stats for all containers, show a live performance data for all containers
