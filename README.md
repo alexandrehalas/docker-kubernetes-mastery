@@ -75,3 +75,35 @@ and we can find using grep
 ```ps aux | grep mongo```
 
 ---
+
+### Manage Multiple Containers
+
+```$ docker container run -d -p 3306:3306 --name db -e MYSQL_RANDOM_ROOT_PASSWORD=yes mysql```
+
+```$ docker container logs db```
+
+```$ docker container logs db | grep PASSWORD```
+
+```$ docker container run -d --name webserver -p 8080:80 httpd```
+
+```$ docker container run -d --name proxy -p 80:80 nginx```
+
+```$ docker container ls```
+
+```$ curl localhost``` - for nginx
+```$ curl localhost:8080``` - for apache
+
+#### Result:
+CONTAINER ID | IMAGE | COMMAND | CREATED | STATUS | PORTS | NAMES
+--- | --- | --- | --- | --- | --- | ---
+ff4e1117f1ca | nginx | "/docker-entrypoint.…" | 2 seconds ago | Up 2 seconds | 0.0.0.0:80->80/tcp | proxy
+7379c569378a | httpd | "httpd-foreground" | About a minute ago | Up About a minute | 0.0.0.0:8080->80/tcp | webserver
+acb90a22417e | mysql | "docker-entrypoint.s…" | 6 minutes ago | Up 6 minutes | 0.0.0.0:3306->3306/tcp, 33060/tcp | db
+
+#### Clean up:
+
+``````$ docker container stop ff4e1117f1ca 7379c569378a acb90a22417e``````
+
+```$ docker container rm ff4e1117f1ca 7379c569378a acb90a22417e```
+
+```$ docker image ls```
