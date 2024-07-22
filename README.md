@@ -115,3 +115,53 @@ acb90a22417e | mysql | "docker-entrypoint.s…" | 6 minutes ago | Up 6 minutes |
 ```$ docker container inspect``` - details of one container config, show metadata about the container (startup, config, volumes, networking, ...)
 
 ```$ docker container stats``` - performance stats for all containers, show a live performance data for all containers
+
+### Getting a shell inside containers: no need for SSH
+
+```$ docker container run -it``` - start new container interactively
+
+```$ docker container run exec -it``` - start new container interactively and run additional command in existing container
+
+---
+
+```$ docker container run -it --name proxy nginx bash```
+
+```ls -l```
+
+```exit```
+
+---
+
+```$ docker container run -it --name ubuntu ubuntu```
+
+```$ apt-get update```
+
+```$ apt-get install -y curl```
+
+```$ curl www.google.com```
+
+```exit```
+
+```$ docker container start -ai ubuntu```
+
+```$ curl www.google.com```
+
+```exit```
+
+---
+
+```$ docker container exec``` - execute a command in a running container
+
+```$ docker run --name mariadbtest -e MYSQL_ROOT_PASSWORD=mypass -p 3306:3306 -d mariadb```
+
+```$ docker container exec -it mariadbtest bash```
+
+```$ ps aux```
+
+---
+
+```$ docker pull alpine```
+
+```$ docker image ls```
+
+```$ docker container run -it alpine sh```
