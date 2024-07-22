@@ -53,3 +53,25 @@ force remove one or more started containers
 5. Gives it a virtual IP on a private network inside docker engine
 6. Opens up port 80 on host and fowards to port 80 in container
 7. Starts container by using the CMD in the image Dockerfile
+
+### Container vs VM
+
+#### Containers aren't mini-vm's
+- They are just processes
+- Limited to what resources they can acess
+- Exit when process stops
+
+```$ docker top mongo``` -
+list running processes in specific container
+
+---
+
+in linux we can see processes using
+
+```ps or ps aux```
+
+and we can find using grep
+
+```ps aux | grep mongo```
+
+---
