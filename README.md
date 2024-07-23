@@ -176,3 +176,18 @@ acb90a22417e | mysql | "docker-entrypoint.s…" | 6 minutes ago | Up 6 minutes |
 
 ```$ docker container inspect --format '{{ .NetworkSettings.IPAddress }}' webhost``` - format is a common option for formating the output of commands using "Go templates"
 
+### Docker Networks: CLI Management of Virtual Networks
+
+```$ docker network ls``` - show networks
+
+--network bridge - default docker virtual network, which is NAT'ed behind the Host IP.
+
+--network host - It gains performance by skipping virtual networks but sacrifices security of container model
+
+```$ docker network inspect``` - inspect a network
+
+```$ docker network create --driver``` - create a network
+
+```$ docker network connect``` - attach a network to container
+
+```$ docker network disconnect``` - detach a network from container
