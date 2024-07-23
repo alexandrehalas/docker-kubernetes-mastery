@@ -197,3 +197,17 @@ acb90a22417e | mysql | "docker-entrypoint.s…" | 6 minutes ago | Up 6 minutes |
 ```$ docker network connect``` - attach a network to container, dynamically creates a NIC in a container on an existing virtual network
 
 ```$ docker network disconnect``` - detach a network from container
+
+### Docker Networks: DNS
+
+Forget IP's - static IP's and using IP's for talking to containers is an anti-pattern.
+
+Docker DNS: Docker daemon has a built-in DNS server that containers use by default
+
+DNS Default Names: Docker defaults the hostname to the container's name, but you can also set aliases
+
+```$ docker container run -d --name my_nginx --network my_app_net nginx```
+
+```docker network inspect my_app_net``` - now there are two containers attached into my_app_net network
+
+```$ docker container exec -it my_nginx ping new_nginx```
