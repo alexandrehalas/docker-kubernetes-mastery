@@ -184,10 +184,16 @@ acb90a22417e | mysql | "docker-entrypoint.s…" | 6 minutes ago | Up 6 minutes |
 
 --network host - It gains performance by skipping virtual networks but sacrifices security of container model
 
+--network none - removes eth0 and only leaves you with localhost interface in container
+
 ```$ docker network inspect``` - inspect a network
 
-```$ docker network create --driver``` - create a network
+```$ docker network create --driver``` - create a network, spawns a new virtual network for you to attach containers to 
 
-```$ docker network connect``` - attach a network to container
+```$ docker network create my_app_net```
+
+```$ docker container run -d --name new_nginx --network my_app_net nginx```
+
+```$ docker network connect``` - attach a network to container, dynamically creates a NIC in a container on an existing virtual network
 
 ```$ docker network disconnect``` - detach a network from container
