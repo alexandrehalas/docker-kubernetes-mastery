@@ -231,3 +231,13 @@ in a new shell
 ```$ docker container run --rm --network my_app_net alpine nslookup search```
 
 ```$ docker container run --rm --network my_app_net centos curl -s search:9200```
+
+### What´s in an Image (and what isn't)
+
+An Image is an ordered collection of root filesystem changes and the corresponding execution parameters for use within a container runtime
+
+- App binaries and dependencies
+- Metadata about the image data and how to run the image
+- Not a complete OS. No kernel, kernel modules (e.g. drivers)
+- Small as on file (your app binary) like a goland static binary
+- Big as a Ubuntu distro with apt, and Apache, PHP, and more installed
