@@ -223,3 +223,11 @@ in a new shell
 ```$ docker container run --rm -it ubuntu bash```
 
 ```$ apt-get update && apt-get install -y curl```
+
+### DNS Round Robin Test
+
+```$ docker run -e "discovery.type=single-node" -e "ES_JAVA_OPTS=-Xms512m -Xmx512m" -e "xpack.security.enabled=false" --network my_app_net -d --network-alias search elasticsearch:8.4.3```
+
+```$ docker container run --rm --network my_app_net alpine nslookup search```
+
+```$ docker container run --rm --network my_app_net centos curl -s search:9200```
