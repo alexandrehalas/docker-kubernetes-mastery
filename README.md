@@ -241,3 +241,20 @@ An Image is an ordered collection of root filesystem changes and the correspondi
 - Not a complete OS. No kernel, kernel modules (e.g. drivers)
 - Small as on file (your app binary) like a goland static binary
 - Big as a Ubuntu distro with apt, and Apache, PHP, and more installed
+
+### The Mighty Hub: Using Docker Hub Registry Images
+
+https://hub.docker.com/
+
+### Images and Their Layers: Discover the Image Cache
+
+- Images are made up of file system changes and metadata
+- Each layer is uniquely identified and only stored once on a host
+- This saves storage space on host and transfer time on push/pull
+- A container is just a single read/write layer on top of image
+
+```$ docker image ls``` - List images
+
+```$ docker image history nginx:latest``` - Show the history of an image
+
+```$ docker image inspect nginx:latest``` - Display detailed information on one or more images
