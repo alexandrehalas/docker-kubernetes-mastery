@@ -211,3 +211,15 @@ DNS Default Names: Docker defaults the hostname to the container's name, but you
 ```docker network inspect my_app_net``` - now there are two containers attached into my_app_net network
 
 ```$ docker container exec -it my_nginx ping new_nginx```
+
+### Using Containers for CLI Testing
+
+```$ docker container run --rm -it centos bash```
+
+```$ yum update curl```
+
+in a new shell
+
+```$ docker container run --rm -it ubuntu bash```
+
+```$ apt-get update && apt-get install -y curl```
