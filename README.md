@@ -165,3 +165,14 @@ acb90a22417e | mysql | "docker-entrypoint.s…" | 6 minutes ago | Up 6 minutes |
 ```$ docker image ls```
 
 ```$ docker container run -it alpine sh```
+
+---
+
+### Docker Networks: Concepts for Private and Public Comms in Containers
+
+```$ docker container run -p 80:80 --name webhost -d nginx``` -p publishing ports is always in HOST:CONTAINER format
+
+```$ docker container port webhost```
+
+```$ docker container inspect --format '{{ .NetworkSettings.IPAddress }}' webhost``` - format is a common option for formating the output of commands using "Go templates"
+
